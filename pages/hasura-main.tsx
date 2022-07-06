@@ -6,7 +6,9 @@ import { GetUsersQuery } from '../types/generated/graphql'
 import { Layout } from '../components/Layout'
 
 const FetchMain: FC = () => {
-  const { data, error } = useQuery<GetUsersQuery>(GET_USERS)
+  const { data, error } = useQuery<GetUsersQuery>(GET_USERS, {
+    fetchPolicy: 'network-only',
+  })
   // errorがtrueだった時の処理
   if (error)
     return (
@@ -18,7 +20,7 @@ const FetchMain: FC = () => {
   return (
     <Layout title="Hasura fetchPolicy">
       <p className="mb-6 font-bold">Hasura main page</p>
-      {console.log(data)}
+      {/* {console.log(data)} */}
       {data?.users.map((user) => {
         return (
           <p className="my-1" key={user.id}>
