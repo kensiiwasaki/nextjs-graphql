@@ -7,7 +7,10 @@ import { Layout } from '../components/Layout'
 
 const FetchMain: FC = () => {
   const { data, error } = useQuery<GetUsersQuery>(GET_USERS, {
-    fetchPolicy: 'network-only',
+    // fetchPolicy: 'network-only',
+    fetchPolicy: 'cache-and-network',
+    // fetchPolicy: 'cache-first',
+    // fetchPolicy: 'no-cache',
   })
   // errorがtrueだった時の処理
   if (error)
