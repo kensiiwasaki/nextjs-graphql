@@ -1,4 +1,5 @@
-GraphQL学習用
+GraphQL 学習用
 
-NextJS 
+NextJS
 TypeScript
+ApolloClient
